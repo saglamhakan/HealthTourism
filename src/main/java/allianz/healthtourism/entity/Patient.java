@@ -1,10 +1,7 @@
 package allianz.healthtourism.entity;
 
 import allianz.healthtourism.base.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -15,6 +12,9 @@ import java.util.List;
 public class Patient extends BaseEntity {
 
     private String name;
+
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "patients")
+    private List<Doctor> doctors;
 
     @OneToMany(mappedBy = "patient")
     private List<Appointment> appointments;

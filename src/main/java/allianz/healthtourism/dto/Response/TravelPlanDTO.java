@@ -9,9 +9,9 @@ import lombok.Data;
 @Data
 public class TravelPlanDTO extends BaseDTO {
 
-    private AppointmentDTO appointment;
+    private Long appointmentId;
 
-    private HotelDTO hotel;
+    private Long hotelId;
 
-    private FlightDTO flight;
+    private Long flightId;
 }

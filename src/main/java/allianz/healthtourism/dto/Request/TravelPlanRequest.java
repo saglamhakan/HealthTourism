@@ -7,15 +7,16 @@ import allianz.healthtourism.dto.Response.HotelDTO;
 import allianz.healthtourism.entity.Appointment;
 import allianz.healthtourism.entity.Flight;
 import allianz.healthtourism.entity.Hotel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
 public class TravelPlanRequest extends BaseRequestDTO {
 
-    private AppointmentDTO appointment;
+    private Long appointmentId;
 
-    private HotelDTO hotel;
+    private Long hotelId;
 
-    private FlightDTO flight;
+    private Long flightId;
 }

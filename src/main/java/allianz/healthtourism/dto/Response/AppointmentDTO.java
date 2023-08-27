@@ -6,12 +6,23 @@ import allianz.healthtourism.entity.HealthService;
 import allianz.healthtourism.entity.Patient;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 public class AppointmentDTO extends BaseDTO {
 
-    private PatientDTO patient;
+    private Long patientId;
 
-    private DoctorDTO doctor;
+    private Long doctorId;
 
-    private HealthServiceDTO healthService;
+    private Long healthServiceId;
+
+    private LocalDateTime appointmentDateTime;
+
+    private boolean isConfirmed;
+
+    private boolean isInvalid;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
+
 }

@@ -1,9 +1,7 @@
 package allianz.healthtourism.entity;
 
 import allianz.healthtourism.base.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -12,12 +10,15 @@ import lombok.Data;
 public class TravelPlan extends BaseEntity {
 
     @OneToOne
+    @JoinColumn(name = "appointment_id")
     private Appointment appointment;
 
     @OneToOne
+    @JoinColumn(name = "hotel_id")
     private Hotel hotel;
 
     @OneToOne
+    @JoinColumn(name = "flight_id")
     private Flight flight;
 
 }

@@ -7,14 +7,23 @@ import allianz.healthtourism.dto.Response.AppointmentDTO;
 import allianz.healthtourism.dto.Response.DoctorDTO;
 import allianz.healthtourism.entity.Appointment;
 import allianz.healthtourism.entity.Doctor;
+import allianz.healthtourism.entity.HealthService;
+import allianz.healthtourism.entity.Patient;
+import allianz.healthtourism.exception.BusinessException;
 import allianz.healthtourism.mapper.ModelMapperManager;
 import allianz.healthtourism.repository.AppointmentRepository;
 import allianz.healthtourism.repository.DoctorRepository;
+import allianz.healthtourism.repository.HealthServiceRepository;
+import allianz.healthtourism.repository.PatientRepository;
 import allianz.healthtourism.specification.AppointmentSpecification;
 import allianz.healthtourism.specification.DoctorSpecification;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Service
 public class AppointmentService extends BaseService<Appointment, AppointmentDTO, AppointmentRequest, AppointmentRepository, AppointmentSpecification> {
@@ -24,6 +33,7 @@ public class AppointmentService extends BaseService<Appointment, AppointmentDTO,
 
     @Autowired
     AppointmentSpecification appointmentSpecification;
+
 
 
     public AppointmentService(ModelMapperManager modelMapperManager) {
@@ -54,4 +64,10 @@ public class AppointmentService extends BaseService<Appointment, AppointmentDTO,
     protected Class<AppointmentRequest> getRequestDto() {
         return AppointmentRequest.class;
     }
+
+
+
+
+
+
 }

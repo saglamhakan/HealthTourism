@@ -10,12 +10,23 @@ import allianz.healthtourism.entity.Patient;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 public class AppointmentRequest extends BaseRequestDTO {
 
-    private PatientDTO patient;
+    private Long patientId;
 
-    private DoctorDTO doctor;
+    private Long doctorId;
 
-    private HealthServiceDTO healthService;
+    private Long healthServiceId;
+
+    private LocalDateTime appointmentDateTime;
+
+    private boolean isConfirmed;  // Randevu onay durumu
+
+    private boolean isInvalid;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
+
 }

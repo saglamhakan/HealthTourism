@@ -2,6 +2,7 @@ package allianz.healthtourism.dto.Response;
 
 import allianz.healthtourism.base.BaseDTO;
 import allianz.healthtourism.entity.Appointment;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.util.List;
@@ -11,5 +12,5 @@ public class HealthServiceDTO extends BaseDTO {
 
     private String serviceName;
 
-    private List<AppointmentDTO> appointments;
+    private Long appointmentId;
 }

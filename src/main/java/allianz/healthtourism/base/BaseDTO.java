@@ -2,6 +2,7 @@ package allianz.healthtourism.base;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -10,6 +11,6 @@ public class BaseDTO {
 
     private Long id;
     private UUID uuid;
-    private Date creationDate;
+    private LocalDateTime createdAt = LocalDateTime.now();
     private Date updatedDate;
 }
