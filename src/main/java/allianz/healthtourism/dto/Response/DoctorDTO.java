@@ -14,8 +14,10 @@ public class DoctorDTO extends BaseDTO {
 
     private String branch;
 
+    @JsonIgnore
     private Long patientId;
 
+    @JsonIgnore
     private Long appointmentId;
 
 }

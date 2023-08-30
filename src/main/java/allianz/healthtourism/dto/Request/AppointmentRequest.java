@@ -7,6 +7,7 @@ import allianz.healthtourism.dto.Response.PatientDTO;
 import allianz.healthtourism.entity.Doctor;
 import allianz.healthtourism.entity.HealthService;
 import allianz.healthtourism.entity.Patient;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
@@ -27,6 +28,7 @@ public class AppointmentRequest extends BaseRequestDTO {
 
     private boolean isInvalid;
 
+    @JsonIgnore
     private LocalDateTime createdAt = LocalDateTime.now();
 
 }

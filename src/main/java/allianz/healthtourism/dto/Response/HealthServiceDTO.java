@@ -12,5 +12,6 @@ public class HealthServiceDTO extends BaseDTO {
 
     private String serviceName;
 
+    @JsonIgnore
     private Long appointmentId;
 }

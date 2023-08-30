@@ -17,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -74,15 +73,12 @@ public class DoctorService extends BaseService<Doctor, DoctorDTO, DoctorRequest,
         Doctor doctor = doctorRepository.findByUuid(doctorUuid).orElseThrow(() -> new BusinessException("Doctor not found with id: " + doctorUuid));
         Patient patient = patientRepository.findByUuid(patientUuid).orElseThrow(() -> new BusinessException("Patient not found with id: " + patientUuid));
 
-        // Doktor ve hasta arasında zaten mevcut bir ilişki olup olmadığını kontrol edin.
         if (doctor.getPatients().contains(patient)) {
             throw new BusinessException("An appointment already exists with this doctor and patient.");
         }
 
-        // Yeni hastayı doktorun hastalar listesine ekleyin.
         doctor.getPatients().add(patient);
 
-        // Veritabanını güncelleyin.
         doctorRepository.save(doctor);
     }
 
@@ -90,8 +86,6 @@ public class DoctorService extends BaseService<Doctor, DoctorDTO, DoctorRequest,
         Doctor doctor = doctorRepository.findByUuid(doctorUuid)
                 .orElseThrow(() -> new BusinessException("Doctor not found with id: " + doctorUuid));
 
-        // Eğer doctor entity içinde hastalar bir "patients" listesinde tutuluyorsa,
-        // bu listeyi doğrudan kullanabiliriz.
         List<Patient> patients = doctor.getPatients();
 
         List<PatientDTO> patientDTOs = patients.stream()

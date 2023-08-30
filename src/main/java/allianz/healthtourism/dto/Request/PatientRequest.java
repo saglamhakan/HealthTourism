@@ -17,8 +17,8 @@ public class PatientRequest extends BaseRequestDTO {
     private String name;
 
     @JsonIgnore
-    private List<DoctorDTO> doctors;
+    private Long doctorId;
 
     @JsonIgnore
-    private List<AppointmentDTO> appointments;
+    private Long appointmentId;
 }

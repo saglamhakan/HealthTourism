@@ -16,11 +16,11 @@ public class HealthTourismApplication {
         SpringApplication.run(HealthTourismApplication.class, args);
     }
 
-
-
     @Bean
     public ModelMapper getModelMapper(){
         return new org.modelmapper.ModelMapper();
     }
+
+
 
 }

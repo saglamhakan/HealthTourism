@@ -1,6 +1,7 @@
 package allianz.healthtourism.dto.Request;
 
 import allianz.healthtourism.base.BaseRequestDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -15,5 +16,6 @@ public class HotelRequest extends BaseRequestDTO {
 
     private boolean isInvalid;  // Rezervasyon geçerlilik durumu
 
+    @JsonIgnore
     private LocalDateTime createdAt = LocalDateTime.now();
 }

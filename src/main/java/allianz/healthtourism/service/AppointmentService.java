@@ -65,9 +65,4 @@ public class AppointmentService extends BaseService<Appointment, AppointmentDTO,
         return AppointmentRequest.class;
     }
 
-
-
-
-
-
 }
